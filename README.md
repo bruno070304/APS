@@ -1,42 +1,21 @@
 # APS
 
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import javax.swing.*;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
-import javax.lang.model.type.NullType;
 
-public class aps {
-    
-    private static Component label;
-    /**
-     * @param args
-     */
-    public static void main(String[] args) {
+public class consumo_luz {
 
-        BufferedImage img = null;
+    double PotenciaProduto;
+    double TempoDeUso;
+    double PrecoFinal;
+    double Produto_kWh;
+    double Preco_kWh = 0.649;
 
-        try {
-            img = ImageIO.read(new File("Consumption Calculator.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    private double luz() {
 
-        JLabel label = new JLabel();
+            Produto_kWh = PotenciaProduto * TempoDeUso ;
 
-        JFrame aps = new JFrame();
-        aps.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        aps.setSize(772, 1011);
+            PrecoFinal = Produto_kWh * Preco_kWh ;
 
-        Image dimg = img.getScaledInstance(aps.getWidth(), aps.getHeight(), 
-                Image.SCALE_SMOOTH);
-
-        ImageIcon imageIcon = new ImageIcon(dimg);
-        ((JLabel) label).setIcon(imageIcon);
-
-        aps.setVisible(true);
-        aps.add(label);
+        return PrecoFinal;
     }
 }
+
